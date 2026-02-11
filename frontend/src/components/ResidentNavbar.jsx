@@ -6,11 +6,13 @@ export default function ResidentNavbar() {
     <div className="nav">
       <NavLink to="/resident">Dashboard</NavLink>
       <NavLink to="/resident/complaints">Complaints</NavLink>
-      <NavLink to="/resident/bills">My Bills</NavLink>
+      <NavLink to="/resident/bills">Bills</NavLink>
       <NavLink to="/resident/facilities">Facilities</NavLink>
-      <NavLink to="/resident/notices">Notices</NavLink>
+
+      {/* ✅ Add this */}
+      <NavLink to="/resident/visitors">Visitors</NavLink>
+
       <button className="btn secondary" onClick={logout}>Logout</button>
     </div>
   );
 }
-

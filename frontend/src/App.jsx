@@ -3,6 +3,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import RoleRoute from "./components/RoleRoute";
 
+/* Guest Pages */
+import GuestHome from "./pages/guest/GuestHome";
+import GuestAmenities from "./pages/guest/GuestAmenities";
+import GuestContact from "./pages/guest/GuestContact";
 /* Dashboards */
 import AdminDashboard from "./pages/AdminDashboard";
 import ResidentDashboard from "./pages/ResidentDashboard";
@@ -18,6 +22,7 @@ import AdminVisitors from "./pages/admin/AdminVisitors";
 import ResidentComplaints from "./pages/resident/ResidentComplaints";
 import ResidentBills from "./pages/resident/ResidentBills";
 import ResidentFacilities from "./pages/resident/ResidentFacilities";
+import ResidentVisitors from "./pages/resident/ResidentVisitors";
 
 /* Security Pages */
 import SecurityVisitors from "./pages/security/SecurityVisitors";
@@ -28,9 +33,16 @@ import Facilities from "./pages/Facilities";
 
 function App() {
   return (
+   
     <BrowserRouter>
       <Routes>
 
+        {/* Guest Pages */}
+        <Route path="/guest" element={<GuestHome />} />
+        <Route path="/guest/amenities" element={<GuestAmenities />} />
+        <Route path="/guest/contact" element={<GuestContact />} />
+
+       
         {/* Login */}
         <Route path="/" element={<Login />} />
 
@@ -124,6 +136,14 @@ function App() {
             </RoleRoute>
           }
         />
+        <Route
+          path="/resident/visitors"
+          element={
+            <RoleRoute allowedRoles={["Resident"]}>
+              <ResidentVisitors />
+            </RoleRoute>
+          }
+        />
 
         <Route
           path="/resident/notices"
@@ -176,6 +196,8 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+    
+  
   );
 }
 

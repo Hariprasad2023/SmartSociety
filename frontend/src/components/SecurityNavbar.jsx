@@ -7,7 +7,6 @@ export default function SecurityNavbar() {
     <div className="nav">
       <NavLink to="/security">Dashboard</NavLink>
       <NavLink to="/security/visitors">Visitors</NavLink>
-      <NavLink to="/security/logs">Gate Logs</NavLink>
       <button className="btn secondary" onClick={logout}>
         Logout
       </button>

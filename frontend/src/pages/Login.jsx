@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { apiRequest } from "../api/api";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -51,6 +52,21 @@ export default function Login() {
 
         {err && <p style={{ color: "red" }}>{err}</p>}
       </div>
+    
+<div style={{ marginTop: 16, textAlign: "center" }}>
+  <p style={{ marginBottom: 6 }}>Just visiting?</p>
+
+  <Link
+    to="/guest"
+    style={{
+      textDecoration: "none",
+      color: "#2563eb",
+      fontWeight: "bold",
+    }}
+  >
+    Continue as Guest →
+  </Link>
+</div>
     </div>
   );
 }
