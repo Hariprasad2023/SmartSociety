@@ -4,26 +4,78 @@ import ResidentNavbar from "../components/ResidentNavbar";
 export default function ResidentDashboard() {
   const navigate = useNavigate();
 
-  const Card = ({ title, desc, path }) => (
-    <div className="card" style={{ cursor: "pointer" }} onClick={() => navigate(path)}>
-      <h3 style={{ marginTop: 0 }}>{title}</h3>
-      <p style={{ color: "#555" }}>{desc}</p>
-      <button className="btn" onClick={() => navigate(path)}>Open</button>
-    </div>
-  );
+  const cards = [
+    {
+      title: "My Complaints",
+      desc: "Raise and track complaints in your society.",
+      path: "/resident/complaints",
+      icon: "🛠️",
+    },
+    {
+      title: "My Bills",
+      desc: "Check maintenance bills and payment status.",
+      path: "/resident/bills",
+      icon: "💳",
+    },
+    {
+      title: "Facilities",
+      desc: "Book society facilities like hall or gym.",
+      path: "/resident/facilities",
+      icon: "🏢",
+    },
+    {
+      title: "Notices",
+      desc: "Stay updated with society announcements.",
+      path: "/resident/notices",
+      icon: "📢",
+    },
+  ];
 
   return (
     <>
       <ResidentNavbar />
-      <div className="container">
-        <h2>Resident Dashboard</h2>
 
-        <div className="grid grid-2" style={{ marginTop: 14 }}>
-          <Card title="My Complaints" desc="Raise and track your complaints." path="/resident/complaints" />
-          <Card title="My Bills" desc="View your maintenance bills." path="/resident/bills" />
-          <Card title="Facilities" desc="Book and view your facility bookings." path="/resident/facilities" />
-          <Card title="Notices" desc="Read society announcements." path="/resident/notices" />
+      <div className="container">
+
+        <div className="resident-dashboard-header">
+          <div>
+            <h2>Resident Dashboard</h2>
+            <p className="subtext">
+              Manage complaints, bills, facility bookings and stay updated with society notices.
+            </p>
+          </div>
         </div>
+
+        <div className="resident-dashboard-grid">
+
+          {cards.map((card) => (
+            <div
+              key={card.title}
+              className="resident-dashboard-card"
+              onClick={() => navigate(card.path)}
+            >
+              <div className="resident-dashboard-icon">
+                {card.icon}
+              </div>
+
+              <h3>{card.title}</h3>
+
+              <p>{card.desc}</p>
+
+              <button
+                className="btn primary"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate(card.path);
+                }}
+              >
+                Open
+              </button>
+            </div>
+          ))}
+
+        </div>
+
       </div>
     </>
   );
