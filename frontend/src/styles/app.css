@@ -605,3 +605,88 @@ input, select, textarea{
 
 /* Slightly nicer scroll behavior */
 html{ scroll-behavior: smooth; }
+
+/* ==============================
+   MOBILE RESPONSIVE PACK
+   Paste at END of app.css
+   ============================== */
+
+/* Better tap targets on mobile */
+@media (max-width: 720px){
+
+  .container{
+    width: 94%;
+    margin: 12px auto;
+    padding: 6px;
+  }
+
+  /* NAV: allow horizontal scroll instead of wrapping ugly */
+  .nav{
+    gap: 8px;
+    padding: 10px 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  .nav::-webkit-scrollbar{ display: none; }
+
+  .nav a{
+    white-space: nowrap;
+    padding: 9px 11px;
+    border-radius: 12px;
+    font-size: 14px;
+  }
+
+  /* Logout button stays visible and not huge */
+  .nav .btn{
+    margin-left: 8px; /* stop pushing too far */
+    white-space: nowrap;
+    padding: 9px 12px;
+  }
+
+  /* Cards: tighter */
+  .card, .panel, .box{
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  /* Dashboard tiles */
+  .grid .card{
+    min-height: 80px;
+    font-size: 15px;
+  }
+
+  /* Forms: comfortable */
+  input, select, textarea{
+    padding: 11px 12px;
+    font-size: 16px; /* avoids iOS zoom */
+  }
+
+  button, .btn{
+    padding: 11px 12px;
+    font-size: 15px;
+    width: 100%;
+  }
+
+  /* If you have multiple buttons in a row */
+  .row{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Tables: horizontal scroll */
+  .table-wrap{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  table{
+    min-width: 720px; /* so columns don't crush */
+  }
+}
+
+/* Ultra small devices */
+@media (max-width: 420px){
+  h2{ font-size: 19px; }
+  .nav a{ font-size: 13px; padding: 8px 10px; }
+  .grid{ gap: 12px; }
+}
